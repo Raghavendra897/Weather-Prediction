@@ -70,5 +70,6 @@ j = dataset[:,0:21]
 loaded_model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 predictions = loaded_model.predict_classes(j)
 # summarize the first 5 cases
-for i in range(10):
-	print('%s => %d ' % (j[i].tolist(), predictions[i]))
+with open('results.txt','w') as result:
+    for i in range(10):
+        result.writelines('input %s => predicted (%d) \n' % (j[i].tolist(), predictions[i]))
