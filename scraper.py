@@ -28,7 +28,7 @@ for link in links:
 for suf in suffix:
     lurl='https://karki23.github.io/Weather-Data/' + suf
     #print(url)
-    fn=str(os.getcwd())+'\\'+'datasets'+'\\'+suf.replace('.html','')+'.csv'
+    fn=str(os.getcwd())+divider+'datasets'+divider+suf.replace('.html','')+'.csv'
     lhtml=requests.get(lurl).text
     lsoup=BeautifulSoup(lhtml,'lxml')
     i=0
@@ -67,11 +67,11 @@ for suf in suffix:
 if 'traindata' not in os.listdir(os.getcwd()):
     os.mkdir('traindata')
 input_folder='datasets'
-for filename in os.listdir(str(os.getcwd())+'\\'+input_folder):
-    input_filename=(str(os.getcwd())+'\\'+input_folder+'\\'+str(filename))
+for filename in os.listdir(str(os.getcwd())+divider+input_folder):
+    input_filename=(str(os.getcwd())+divider+input_folder+divider+str(filename))
     begin = 2
     end = 24
-    output_filename=str(os.getcwd())+'\\'+'traindata'+'\\'+'m'+filename
+    output_filename=str(os.getcwd())+divider+'traindata'+divider+'m'+filename
     l=[]
     with open(input_filename, "r") as file_in:
         with open(output_filename, "w",newline='') as file_out:
@@ -91,8 +91,8 @@ for filename in os.listdir(str(os.getcwd())+'\\'+input_folder):
 data=[]
 with open ('finaltrain.csv',"w",newline='') as file_out:
     writer = csv.writer(file_out)
-    for filename in os.listdir(os.getcwd()+'\\'+'traindata'):
-        input_filename=(str(os.getcwd())+'\\'+'traindata'+'\\'+str(filename))
+    for filename in os.listdir(os.getcwd()+divider+'traindata'):
+        input_filename=(str(os.getcwd())+divider+'traindata'+divider+str(filename))
         l=[]
         with open(input_filename, "r") as file_in:
             for row in csv.reader(file_in):
