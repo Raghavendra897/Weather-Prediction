@@ -4,10 +4,14 @@ Created on Wed Jul 17 20:13:09 2019
 
 @author: Raghavendra J P
 """
-import csv,requests,os
+import csv,requests,os,sys
 from bs4 import BeautifulSoup
 
-
+if(sys.platform =='linux' or sys.platform == 'darwin'):
+    divider = '/'
+else:
+    if(sys.platform == 'win32'):
+        divider = '\\'
 if 'datasets' not in os.listdir(os.getcwd()):
     os.mkdir('datasets')
 
