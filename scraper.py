@@ -77,7 +77,7 @@ for filename in os.listdir(str(os.getcwd())+'\\'+input_folder):
             del l[0]
             train=[]
             for j in l:
-                a=[float(i.replace('nan','0').replace('Yes','1').replace('No','0').replace('N','1').replace('S','2').replace('E','3').replace('W','4').replace('[','').replace(']','')) for i in j]
+                a=[float(i.replace('nan','0').replace('Yes','1').replace('No','0').replace('NE','5').replace('NW','6').replace('SE','7').replace('SW','8').replace('N','1').replace('S','2').replace('E','3').replace('W','4').replace('[','').replace(']','')) for i in j]
                 train.append(a)
             for i in train:
                 writer.writerow(i)
